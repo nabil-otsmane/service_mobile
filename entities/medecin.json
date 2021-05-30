@@ -1,0 +1,22 @@
+{ 
+    "name": "Medecin", 
+    "columns": { 
+        "id": { 
+            "primary": true, 
+            "type": "int", 
+            "generated": true 
+        }, 
+        "nom": { 
+            "type": "varchar" 
+        }, 
+        "prenom": { 
+            "type": "varchar" 
+        },
+        "numeroTelephone": {
+            "type": "varchar"
+        },
+        "specialite": {
+            "type": "varchar"            
+        }
+    } 
+ }
