@@ -6,17 +6,33 @@
             "type": "int", 
             "generated": true 
         }, 
-        "nom": { 
+        "name": { 
             "type": "varchar" 
         }, 
-        "prenom": { 
+        "lastName": { 
             "type": "varchar" 
         },
-        "numeroTelephone": {
+        "phone": {
             "type": "varchar"
         },
-        "specialite": {
+        "speciality": {
             "type": "varchar"            
+        },
+        "photo": {
+            "type": "varchar"
+        },
+        "latitude": {
+            "type": "float"
+        },
+        "longitude": {
+            "type": "float"
+        },
+        "facebook": {
+            "type": "varchar"
+        },
+        "experiance": {
+            "type": "int",
+            "default": 0
         }
     } 
  }

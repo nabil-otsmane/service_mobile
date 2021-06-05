@@ -1,21 +1,20 @@
-const dotenv = require("dotenv")
-dotenv.config()
-
 const express = require('express')
 const cors = require("cors")
 const {createConnection, EntitySchema} = require("typeorm")
 
-const { getMedecins, getMedecin, addMedecin } = require("./controllers")
+const { getMedecins, getMedecin, addMedecin, getPost, addPost, getPosts } = require("./controllers")
 
 const app = express()
 app.use(cors())
 app.use(express.json())
 
 app.get("/medecin", getMedecins)
-
 app.get("/medecin/:id", getMedecin)
-
 app.post("/medecin", addMedecin)
+
+app.get("/post", getPosts)
+app.get("/post/:id", getPost)
+app.post("/post", addPost)
 
 createConnection({
     type: "postgres",
@@ -25,8 +24,11 @@ createConnection({
     password: "heyheyboi",
     database: "Mobile",
     synchronize: true,
-    logging: true,
-    entities: [ new EntitySchema(require("./entities/medecin.json"))]
+    logging: false,
+    entities: [
+        new EntitySchema(require("./entities/medecin.json")),
+        new EntitySchema(require("./entities/post.json"))
+    ]
 })
 .then(() => {
     app.listen(1337, () => {
